@@ -1,0 +1,718 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@100;300&display=swap');
+
+/*--------ROOT VARIABLES----------*/
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: rgb(255, 177, 41);
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-white: white;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+/*--------------DARK THEME VARIABLES-------------*/
+.dark-theme{
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+p{
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    background: var(--color-background);
+    user-select: none;
+    overflow-x: hidden;
+}
+
+.container {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 14rem auto 24rem;
+    width: 100vw;
+    height: 100vh;
+}
+
+a{
+    color: var(--color-dark);
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--color-dark);
+}
+
+h2{
+    font-size: 1.4rem;
+    color: var(--color-dark);
+}
+
+h3{
+    font-size: 0.87rem;
+    color: var(--color-dark);
+}
+
+.profile-pic{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.text-muted{
+    color: var(--color-info-dark);
+}
+
+p{
+    color: var(--color-dark-variant);
+}
+
+.primary {
+    color: var(--color-primary);
+}
+
+.danger {
+    color: var(--color-danger);
+}
+
+.success {
+    color: var(--color-success);
+}
+
+.warning {
+    color: var(--color-warning);
+}
+
+aside{
+    height: 100%;
+    width: 100%;
+    margin-left: 3rem;
+}
+
+aside .top{
+    margin-top: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+aside .logo{
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.logo img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+aside .close {
+    display: none;
+    margin-top: 0.5rem;
+}
+
+/*=========SIDEBAR===========*/
+aside .sidebar{
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 2rem;
+    width: 100%;
+}
+
+.sidebar a{
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 100%;
+    height: 3.7rem;
+    gap: 1rem;
+    position: relative;
+    color: var(--color-info-dark);
+
+}
+
+.sidebar h3{
+    font-weight: 500;
+}
+
+.sidebar a span{
+    font-size: 1.2rem;
+    transition: all 300ms ease;
+}
+
+.sidebar a:last-child{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+
+}
+
+.sidebar a:hover h3{
+    color: var(--color-primary);
+}
+
+.sidebar a:hover span{
+    color: var(--color-primary);
+    margin-left: 1rem;
+}
+
+.sidebar a.active{
+    background: var(--color-light);
+    color: var(--color-primary);
+    margin-left: -1.5rem;
+}
+
+.sidebar a.active:before{
+    content: " ";
+    width: 6px;
+    height: 100%;
+    background: var(--color-primary);
+}
+
+.sidebar a.active span {
+    margin-left: calc(1rem - 3px);
+    color: var(--color-primary);
+}
+
+.sidebar .message-count{
+    background: var(--color-danger);
+    color: var(--color-white) !important;
+    padding: 1px 8px;
+    font-size: 13px;
+    border-radius: var(--border-radius-1);
+}
+
+/*=============MAIN=================*/
+main {
+    margin-top: 1rem;
+    padding: 0;
+}
+
+main .date{
+    display: inline-block;
+    background: var(--color-light);
+    border-radius: var(--border-radius-1);
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+}
+
+main .date input[type="date"]{
+    background: transparent;
+    font-size: 0.8rem;
+    user-select: none;
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+.insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.insights div{
+    margin: 0;
+    padding: 0;
+    background: var(--color-white);
+    padding: var(--card-padding);
+    position: relative;
+}
+
+.insights .cards .middle{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    background: transparent !important;
+}
+
+.cards .middle .left {
+    position: relative;
+    left: 0;
+    padding: 0 !important;
+    margin-top: 2rem;
+    background: transparent !important;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius-2);
+    box-shadow: var(--box-shadow);
+    transition: all 200ms ease;
+    cursor: pointer;
+    background: var(--color-white);
+}
+.cards:hover {
+    box-shadow: none;
+}
+
+.cards span{
+    height: 3rem;
+    width: 3rem;
+    padding-top: 4px;
+    padding-left: 6px;
+    border-radius: 50px;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+
+.sales span{
+    background: var(--color-primary);
+}
+
+.expenses > span{
+    
+    background: var(--color-danger);
+}
+
+.income > span{
+    padding-top: 1px;
+    padding-left: 0.5px;    
+    background: var(--color-success);
+}
+
+.insights svg {
+    width: 8rem;
+    height: 8rem;
+    
+}
+.insights svg circle {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 12;
+    stroke-linecap: round;
+}
+.insights .sales svg circle {
+
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+.insights .expenses svg circle {
+
+    stroke-dashoffset: 20;
+    stroke-dasharray: 90;
+}
+.insights .income svg circle {
+
+    stroke-dashoffset: 35;
+    stroke-dasharray: 110;
+}
+
+.cards .progress {
+    position: relative;
+    padding: 0 !important;
+    right: -1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+}
+
+.cards .middle .progress .number {
+    padding: 0 !important; 
+    position: absolute;
+    background: transparent !important;
+}
+
+/*=================RECENT ORDERS=================*/
+
+main .recent-orders{
+    margin-top: 2rem;
+}
+.recent-orders h2 {
+    margin-bottom: 1.5rem;
+}
+
+table {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+table:hover{
+    box-shadow: none;
+}
+
+table thead{
+    height: 3rem;
+    color: var(--color-dark);
+}
+table tbody td{
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+table tbody tr:last-child td{
+    border: none;
+}
+
+.recent-orders a{
+    text-align: center;
+    color: var(--color-dark-variant);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/*======================MAIN ENDS HERE====================*/
+
+.right-section{
+    margin-top: 1.4rem;
+}
+.right-section .right-top{
+    display: flex;
+    justify-content: end;
+    gap: 2.5rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+.right-top button{
+    display: none;
+}
+.right-top .profile{
+    display: flex;
+    gap: 1.5rem;
+    text-align: right;
+    font-size: 12px;
+}
+.right-top .theme-toggler{
+    display: flex;
+    background: var(--color-light);
+    align-items: center;
+    justify-content: space-between;
+    height: 1.7rem;
+    width: 4.4rem;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+}
+.theme-toggler span{
+    font-size: 1.3rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-dark);
+}
+.theme-toggler span.active{
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--border-radius-1);
+}
+
+.recent-updates h2{
+    margin-bottom: 0.5rem;
+}
+
+.recent-updates .updates{
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    width: 95%;
+    transition: all 300ms ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    margin: 0;
+}
+.recent-updates .updates:hover{
+    box-shadow: none;
+}
+.updates .update .profile-pic{
+   height: 100%;
+}
+.updates .update{
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+}
+
+.sales-analytics{
+    margin-top: 1.5rem;
+}
+.sales-analytics h2{
+    margin-bottom: 0.5rem;
+}
+
+.sales-analytics .stats{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.sales-analytics .stats .items{
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    width: 95%;
+    transition: all 300ms ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1.5rem;
+}
+.stats .items:hover{
+    box-shadow: none;
+}
+
+.items .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    color: var(--color-white)
+}
+.stats .online .icon{
+    background: var(--color-primary);
+}
+.stats .offline .icon{
+    background: var(--color-danger);
+}
+.stats .customers .icon{
+    background: var(--color-success);
+}
+
+.items .right{
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+}
+
+.add-product{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    width: 95%;
+    cursor: pointer;
+    border: 2px dashed var(--color-primary);
+    gap: 0.4rem;
+}
+.add-product p{
+    color: var(--color-primary);
+
+}
+
+/*=========MEDIA QUERIES===========*/
+
+@media screen and (max-width: 1200px) {
+    .container{
+        
+        width: 94%;
+        grid-template-columns: 7rem auto 23rem;
+    }
+    
+    aside .logo h2{
+        display: none;
+    }
+
+    aside .sidebar h3{
+        display: none;
+    }
+
+    aside .sidebar a{
+        width: 5.5rem;
+    }
+
+    aside .sidebar span{
+        font-size: 1.3rem;
+    }
+
+    aside .sidebar a:last-child{
+        position: relative;
+        margin-top: 5rem;
+    }
+
+    main .insights{
+        grid-template-columns: 1fr;
+    }
+
+    main .recent-orders{
+        width: 92%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-left: 1rem;
+    }
+
+    /*main table thead tr th:last-child,
+    main table thead tr th:first-child{
+        display: none;
+    }
+
+    main table tbody tr td:last-child,
+    main table tbody tr td:first-child{
+        display: none;
+    }*/
+}
+
+@media screen and (max-width: 768px) {
+    .container{
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    aside{
+        position: fixed;
+        left: -100%;
+        z-index: 3;
+        background: var(--color-white);
+        width: 17rem;
+        padding: var(--card-padding);
+        margin: 0;
+        display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+
+    @keyframes showMenu {
+        to{
+            left: 0;
+        }
+    }
+
+    aside .logo h2{
+        display: inline;
+    }
+
+    aside .sidebar h3{
+        display: inline;
+    }
+
+    aside .sidebar a{
+        width: 100%;
+    }
+
+    aside .sidebar a:last-child{
+        position: absolute;
+        bottom: 5rem;
+    }
+
+    aside .top .close{
+        display: inline-block;
+        cursor: pointer;
+        color: var(--color-dark);
+    }
+
+    main{
+        margin-top: 7rem;
+        padding: 0 2rem;
+    }
+
+    main .recent-orders{
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+    }
+
+    .right-section .right-top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: var(--color-white);
+        align-items: center;
+        width: 100%;
+        height: 4.5rem;
+        padding: 0 1.5rem;
+        z-index: 2;
+        box-shadow: var(--box-shadow);
+    }
+
+    .right-section .right-top .menubar{
+        display: block;
+        background: transparent;
+        position: absolute;
+        left: 2rem;
+        cursor: pointer;
+        color: var(--color-dark);
+    }
+
+    .right-top .menubar span{
+        color: var(--color-dark);
+        font-size: 2rem;
+    }
+
+    .right-section .right-top .theme-toggler{
+        position: absolute;
+        left: 70%;
+    }
+
+    .right-top .profile .info{
+        display: none;
+    }
+
+    .right-section{
+        padding-left: 2rem;
+    }
+
+    .recent-updates .updates .update{
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .sales-analytics .stats .items{
+        justify-content: center;
+        gap: 2rem;
+    }
+}
