@@ -248,6 +248,7 @@ main .date{
 main .date input[type="date"]{
     background: transparent;
     font-size: 0.8rem;
+    border: none;
     user-select: none;
     text-decoration: none;
     color: var(--color-dark);
